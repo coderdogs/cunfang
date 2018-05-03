@@ -57,6 +57,11 @@ public class StringBuilder1 {
         //传入的字符串写入新的数组
         char[] appendChars=append.toCharArray();
         //聚合两个数组
+        int appendLength=appendChars.length;
+        for(int i=0;i<appendLength;i++){
+            newChars[newChars.length-appendLength+i]=newChars[i];
+        }
+        value=newChars;
         return this;
     }
     /*
@@ -74,6 +79,9 @@ public class StringBuilder1 {
     }
     public static void main(String[] args) {
         String s="Hello World";
-        System.out.println(new StringBuilder1(s));
+        StringBuilder1 stringBuilder1=new StringBuilder1(s);
+        StringBuilder1 hello=stringBuilder1.append("hello");
+        System.out.println(stringBuilder1);
+        System.out.println(hello);
     }
 }
